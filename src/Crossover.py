@@ -8,11 +8,10 @@ class Xover(Parameters):
         self.list_chrom = list_chrom
 
     def swap(self):
-        mask = np.vectorize(lambda x: np.random.choice([True, False], p=[1-self.p_xcover, self.p_xcover]))\
+        mask = np.vectorize(lambda x: np.random.choice([True, False], p=[1-self.p_xover, self.p_xover]))\
             (np.zeros(self.pop_size))
         mask_not = np.logical_not(mask)
         x = np.ma.array(self.list_chrom, mask=mask).compressed()  # element to swap
-        print(len(x))
         y = np.ma.array(self.list_chrom, mask=mask_not).compressed()  # element not to swap
         if len(x) % 2 == 1:
             ind1 = random.randrange(0, len(x))

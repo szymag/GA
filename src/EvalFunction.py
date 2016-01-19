@@ -24,7 +24,7 @@ class EvalFunction(Parameters):
 
     def problem_function(self):
         x = self.to_problem_range()
-        return 0.5 + ((np.sin(np.sqrt(x[0]**2 + x[1]**2)))**2 - 0.5) / (1. + 0.001*(x[0]**2 + x[1]**2))**2
+        return 0.5 - ((np.sin(np.sqrt(x[0]**2 + x[1]**2)))**2 - 0.5) / (1. + 0.001*(x[0]**2 + x[1]**2))**2
 
     def probability_choice(self):
         tmp = np.sum(self.problem_function())

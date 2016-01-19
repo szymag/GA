@@ -18,15 +18,16 @@ class GeneticAlgorithm(Parameters):
         population = list(map(func, np.zeros(self.pop_size)))
         return population
 
-    @do_cprofile
+    #@do_cprofile
     def procedure(self):
         population = self.begin_population()
-        print(EvalFunction(population).total_fit())
-        for i in range(200):
+        print(EvalFunction(population).to_problem_range())
+        print(EvalFunction(population).problem_function())
+        for i in range(30000):
             population = Roulette(population).choice()
             population = Xover(population).swap()
             population = Mutation(population).mutation()
-        return EvalFunction(population).total_fit()
+        return EvalFunction(population).to_problem_range(), EvalFunction(population).problem_function()
 
 
 q = GeneticAlgorithm().procedure()
