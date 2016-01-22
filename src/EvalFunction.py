@@ -1,12 +1,12 @@
 import numpy as np
 from src.Parameters import Parameters
-
+from src.GrayConversion import GrayConversion
 
 class EvalFunction(Parameters):
 
     def __init__(self, list_chrom):
-        self.list_chrom = list_chrom
-
+        self.list_chrom = GrayConversion(list_chrom).chrom_to_bin_representation() # that parts defines, which
+        #self.list_chrom = list_chrom                                              # type of decoding is used
     def to_dec_conversion(self, list_chrom):
         return list(map(lambda x: int(x, 2), list_chrom))
 
