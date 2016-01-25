@@ -3,7 +3,7 @@
 
 class Parameters(object):
 
-    p_mut = 0.05
+
     p_xover = 0.35
     begin_interval = -100
     end_interval = 100

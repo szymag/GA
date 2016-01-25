@@ -4,9 +4,10 @@ import random
 
 
 class Mutation(Parameters):
-    def __init__(self, list_chrom):
+    def __init__(self, list_chrom, p_mut):
         Parameters.__init__(self)
         self.list_chrom = list_chrom
+        self.p_mut = p_mut
 
     def mutation(self):
         mask = np.vectorize(lambda x: np.random.choice([True, False], p=[1-self.p_mut, self.p_mut]))\

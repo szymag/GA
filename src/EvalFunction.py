@@ -30,5 +30,6 @@ class EvalFunction(Parameters):
         tmp = np.sum(self.problem_function())
         return np.cumsum(self.problem_function() / tmp)
 
+
     def total_fit(self):
-        return np.sum(self.problem_function())
+        return np.array([np.sum(self.problem_function()), np.max(self.problem_function())])
